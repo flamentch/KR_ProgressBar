@@ -37,14 +37,14 @@ For each ($myObject_ob; $myCollection_co)
 	// Check if the user clicked on the stop button with Progress Stopped
 	// https://doc.4d.com/4Dv20R6/4D/20-R6/Progress-Stopped.301-7183776.en.html
 	
-	var $isToContinue_b : Boolean
-	$isToContinue_b:=Not:C34(KR_ProgressBar(New object:C1471(\
+	var $isStopped_b : Boolean
+	$isStopped_b:=KR_ProgressBar(New object:C1471(\
 		"status"; "checkStopped"\
 		; "progressBarId"; $progBarId_l\
-		)).isStopped)
+		)).isStopped
 	
 	
-	If ($isToContinue_b=False:C215)
+	If ($isStopped_b)
 		//If the user clicked on the stop button then break out of the loop
 		break
 	Else 
